@@ -5,7 +5,7 @@ const urlELement=document.querySelector("#url");
 
 //UI objesini başlatma
 
-const ui=new UI();
+const ui= new UI();
 
 //Tüm eventleri yükleme
 
