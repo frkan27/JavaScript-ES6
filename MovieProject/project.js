@@ -62,5 +62,12 @@ function deleteFilm(e){
     //a etiketinin id sini alarak bulabiliriz.delete-film
     if(e.target.id==="delete-film"){//eğer tıkladığım yerin id si delete-film ise
       ui.deleteFilmFromUI(e.target);
+      //filmi storagedan isme göre silmek istiyorum.bi üste çıktığımda <td>elementi var.
+      //bu td elementini 2 önceki kardeşi olan <td> de film isimleri var. textContent le buraya ulaşıp silicem.
+      storage.deleteFilmFromStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
+
+      //işlemler bittikten sonra mesaj göstererlim.
+
+      ui.displayMessage("Başarıyla silindi","success");
     }
 }

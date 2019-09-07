@@ -25,3 +25,16 @@ Storage.prototype.getFilmsFromStorage=function(){
     }
     return films;
 }
+
+Storage.prototype.deleteFilmFromStorage=function(filmTitle){
+    let films=this.getFilmsFromStorage();//Storagedan filmimizi aldık.
+
+    //her bir film üzerinde gezinmemiz gerekiyor
+    films.forEach(function(film,index){
+        if(film.title===filmTitle){//bulduğumuz film.title gönderdiğimiz filmTitle a eşitse
+          films.splice(index,1);//bulduğumuz objeyi siliyoruz.
+        }
+    });
+    //Sildikten sonra localstorage yi güncelliyoruz.
+    localStorage.setItem("films",JSON.stringify(films));
+}
