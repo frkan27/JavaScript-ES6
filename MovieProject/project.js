@@ -2,6 +2,8 @@ const form=document.getElementById("film-form");
 const titleElement=document.querySelector("#title");
 const directorElement=document.querySelector("#director");
 const urlELement=document.querySelector("#url");
+const cardBody=document.querySelectorAll(".card-body")[1];
+//2. cardbody i seçiyoruz çünkü delete button u burda onu seçicez.
 
 //UI objesini başlatma
 
@@ -13,7 +15,7 @@ const storage=new Storage();
 //Tüm eventleri yükleme
 
 eventListeners();
-
+//addeventlistener tıklandığında yapılacak işlemler için kullanılır.
 function eventListeners(){
     form.addEventListener("submit",addFilm);//Formumuza submit eventi ekliyoruz.
     //submit olduğunda addFilm adındaki fonksiyon çalışır.
@@ -21,6 +23,9 @@ function eventListeners(){
 let films=storage.getFilmsFromStorage();
 ui.LoadAllFilms(films);
     });
+
+cardBody.addEventListener("click",deleteFilm);
+
 }
 
 function addFilm(e){
@@ -49,4 +54,13 @@ ui.clearInputs(titleElement,directorElement,urlELement);
 
    //Bu formun submit edilmesini önlemek için
    e.preventDefault();
+}
+//arayüzden silme işlemi 
+function deleteFilm(e){
+    //e.target ile tıkladığımız yeri bulabiliriz.
+    //biz <a> etiketine tıklayıp silme işleme yapıcaz.
+    //a etiketinin id sini alarak bulabiliriz.delete-film
+    if(e.target.id==="delete-film"){//eğer tıkladığım yerin id si delete-film ise
+      ui.deleteFilmFromUI(e.target);
+    }
 }

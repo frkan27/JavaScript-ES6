@@ -15,12 +15,12 @@ const filmList=document.getElementById("films");
 //altgr den sonra virgüle basınca `` bu işaret çıkıyor.ES6 ya özel. yoksa $ işareti çalışmıyor...
 filmList.innerHTML += `
 <tr>
-                                            <td><img src="${newFilm.url}" class="img-fluid img-thumbnail"></img></td>
-                                            <td>${newFilm.title}</td>
-                                            <td>${newFilm.director}</td>
-                                            <td><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>  
-                                            </tr>
-                                            `;
+     <td><img src="${newFilm.url}" class="img-fluid img-thumbnail"></img></td>
+      <td>${newFilm.title}</td>
+      <td>${newFilm.director}</td>
+      <td><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>  
+    </tr>
+    `;
 
 
 }
@@ -67,4 +67,9 @@ UI.prototype.LoadAllFilms=function(films){
  </tr>
    `;
     });
+}
+UI.prototype.deleteFilmFromUI=function(element){//elemente e.target ı göndermiş olduk.project sayfasından.
+    //a etiketinin üstünde <td> var onunda üstünde <tr> var
+    //tr ulaşıp silmem lazımki her şey silinsin o satırdaki.
+    element.parentElement.parentElement.remove();
 }
