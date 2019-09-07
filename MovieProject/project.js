@@ -7,6 +7,9 @@ const urlELement=document.querySelector("#url");
 
 const ui= new UI();
 
+//Ekledikten sonra storage a eklenmesi için Sotorage objesi üretmem gerekiyor.
+const storage=new Storage();
+
 //Tüm eventleri yükleme
 
 eventListeners();
@@ -33,6 +36,7 @@ else{
     const newFilm=new Film(title,director,url);
 
     ui.addFilmToUI(newFilm);//Arayüze film ekleme
+    storage.addFilmToStorage(newFilm);//Storage a film ekleme
     ui.displayMessage("Başarıyla eklendi","success");
 }
 //addFilm den hemen sonra çağırıyoruzki ekleme işlemi yaptıktan sonra silsin kutuları
