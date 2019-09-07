@@ -24,3 +24,30 @@ filmList.innerHTML += `
 
 
 }
+
+UI.prototype.clearInputs=function(elem1,elem2,elem3){
+elem1.value="";
+elem2.value="";
+elem3.value="";
+
+}
+
+UI.prototype.displayMessage=function(message,type){
+    //ilk card-bosy nin altına gelmesini istediğimizden onu seçiyoruz. ". class olduğunu simgeler"
+const cardBody=document.querySelector(".card-body");
+//Alert divini oluşturuyoruz
+
+const div=document.createElement("div");
+div.className=`alert alert-${type}`;//kullandığımız tırnaklar $ işareti falan template literal oluyor.
+div.textContent=message;
+
+//card bosy mize yeni bir çocuk olarak bunu eklememiz gerekiyor.
+cardBody.appendChild(div);
+//Bu kısım 1 snye çalışıp kaybolcak.
+setTimeout(function(){
+div.remove();
+},1000);
+
+
+
+}

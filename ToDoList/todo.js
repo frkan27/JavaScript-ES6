@@ -123,7 +123,7 @@ function addTodoToStorage(newTodo){//Eklediğimiz todoları LocalStorage a kayde
 function showAlert(type,message){
     const alert=document.createElement("div");//div elementi oluşturuyoruz.
 
-    alert.className = "alert alert-${type}";
+    alert.className = `alert alert-${type}`;
 
     alert.textContent=message;
     firstCardBody.appendChild(alert);//todo ekleyin yazısının altında görünmesini sağlıyor.

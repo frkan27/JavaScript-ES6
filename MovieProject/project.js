@@ -25,14 +25,18 @@ const url=urlELement.value;
 if(title===""|| director==="" || url===""  ){
     //Bu kutular boşsa hata vericek
     //Hata
+    ui.displayMessage("Tüm alanları doldurun","danger");
+    //Boş bıraktığımızda gelmesini istediğimiz mesajı ve tipi girdik.
 }
 else{
     //Yeni filmimizi constructorla oluşturuyoruz.Girdiğimiz değerler constructora gidiyor
     const newFilm=new Film(title,director,url);
 
     ui.addFilmToUI(newFilm);//Arayüze film ekleme
+    ui.displayMessage("Başarıyla eklendi","success");
 }
-
+//addFilm den hemen sonra çağırıyoruzki ekleme işlemi yaptıktan sonra silsin kutuları
+ui.clearInputs(titleElement,directorElement,urlELement);
 
 
    //Bu formun submit edilmesini önlemek için
