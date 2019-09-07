@@ -17,6 +17,10 @@ eventListeners();
 function eventListeners(){
     form.addEventListener("submit",addFilm);//Formumuza submit eventi ekliyoruz.
     //submit olduğunda addFilm adındaki fonksiyon çalışır.
+    document.addEventListener("DOMContentLoaded",function(){
+let films=storage.getFilmsFromStorage();
+ui.LoadAllFilms(films);
+    });
 }
 
 function addFilm(e){
