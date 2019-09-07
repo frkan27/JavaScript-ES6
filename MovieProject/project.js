@@ -4,6 +4,8 @@ const directorElement=document.querySelector("#director");
 const urlELement=document.querySelector("#url");
 const cardBody=document.querySelectorAll(".card-body")[1];
 //2. cardbody i seçiyoruz çünkü delete button u burda onu seçicez.
+const clear=document.getElementById("clear-films");
+//tüm filmleri temizle yazan butonu id sini kullanarak seçiyoruz
 
 //UI objesini başlatma
 
@@ -25,6 +27,7 @@ ui.LoadAllFilms(films);
     });
 
 cardBody.addEventListener("click",deleteFilm);
+clear.addEventListener("click",clearAllFilms);
 
 }
 
@@ -70,4 +73,14 @@ function deleteFilm(e){
 
       ui.displayMessage("Başarıyla silindi","success");
     }
+}
+
+function clearAllFilms(){
+    if(confirm("Emin misiniz?")){
+        ui.clearAllFilmsFromUI();
+        storage.clearAllFilmsFromStorage();
+        ui.displayMessage("Tüm liste silindi","success");
+    }
+   
+    
 }

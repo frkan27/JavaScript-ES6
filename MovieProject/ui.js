@@ -73,3 +73,13 @@ UI.prototype.deleteFilmFromUI=function(element){//elemente e.target ı göndermi
     //tr ulaşıp silmem lazımki her şey silinsin o satırdaki.
     element.parentElement.parentElement.remove();
 }
+
+UI.prototype.clearAllFilmsFromUI=function(){
+    const filmList=document.getElementById("films");
+
+    //<tr> kalmayana kadar ilk çocuğu sielebilriiz.
+
+    while(filmList.firstElementChild !== null){//null a eşit olana kadar silicek
+        filmList.firstElementChild.remove();
+    }
+}

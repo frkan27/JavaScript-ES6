@@ -38,3 +38,9 @@ Storage.prototype.deleteFilmFromStorage=function(filmTitle){
     //Sildikten sonra localstorage yi güncelliyoruz.
     localStorage.setItem("films",JSON.stringify(films));
 }
+
+
+//tüm filmeri sildik
+Storage.prototype.clearAllFilmsFromStorage=function(){
+    localStorage.removeItem("films");
+}
