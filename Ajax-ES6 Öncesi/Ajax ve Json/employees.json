@@ -1,0 +1,17 @@
+[
+    {
+        "name":"Furkan Kılıç",
+        "department":"Bilişim",
+        "salary":3500
+    },
+    {
+        "name":"Kürşad Bayıralan",
+        "department":"Satış",
+        "salary":5500
+    },
+    {
+        "name":"Serhat Yatar",
+        "department":"Bakım",
+        "salary":3900
+    }
+]
